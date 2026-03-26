@@ -1,0 +1,24 @@
+{
+  "name": "praise-manager",
+  "version": "1.0.0",
+  "description": "Uma API para gerenciar:",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "dev": "node --watch src/app.js"
+  },
+  "type": "module",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/GabrielRodrigues-pd/praiseManagement-api.git"
+  },
+  "author": "Gabriel Rodrigues",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/GabrielRodrigues-pd/praiseManagement-api/issues"
+  },
+  "homepage": "https://github.com/GabrielRodrigues-pd/praiseManagement-api#readme",
+  "dependencies": {
+    "express": "^5.2.1"
+  }
+}
