@@ -11,6 +11,17 @@ export function addSongs(currentSongs, newSongs) {
   return songs;
 }
 
+export function getSongById(currentSongs, id) {
+  if (typeof id !== "number") {
+    throw new Error("Id must be a number");
+  }
+  const song = currentSongs.find((song) => song.id === id);
+  if (!song) {
+    throw new Error("Song not found");
+  }
+  return song;
+}
+
 export function updateSongs(currentSongs, updatedSong) {
   const songs = currentSongs.map((song) =>
     song.id === updatedSong.id ? updatedSong : song,

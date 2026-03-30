@@ -1,5 +1,6 @@
 import * as songService from "../services/songServices.js";
 
+// Pega todos os songs do arquivo songs.json
 export const getSongs = async (req, res) => {
   try {
     const songs = await songService.getAllSongs();
@@ -9,17 +10,19 @@ export const getSongs = async (req, res) => {
   }
 };
 
+// Pega um song específico do arquivo songs.json pelo id
 export const getSongById = async (req, res) => {
   try {
     const currentSongs = await songService.getAllSongs();
-    const id = req.params.id;
+    const id = parseInt(req.params.id);
     const song = songService.getSongById(currentSongs, id);
-    res.status(200).json({ data: song, count: song.length });
+    res.status(200).json({ data: song });
   } catch (error) {
     res.status(400).json({ message: error.message });
   }
 };
 
+// Adiciona um song no arquivo songs.json
 export const createSongs = async (req, res) => {
   try {
     const currentSongs = await songService.getAllSongs();
@@ -31,6 +34,7 @@ export const createSongs = async (req, res) => {
   }
 };
 
+// Atualiza um song específico do arquivo songs.json pelo id
 export const updateSong = async (req, res) => {
   try {
     const currentSongs = await songService.getAllSongs();
@@ -42,6 +46,7 @@ export const updateSong = async (req, res) => {
   }
 };
 
+// Deleta um song específico do arquivo songs.json pelo id
 export const deleteSong = async (req, res) => {
   try {
     const currentSongs = await songService.getAllSongs();

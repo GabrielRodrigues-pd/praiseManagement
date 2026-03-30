@@ -1,6 +1,7 @@
 import { Router } from "express";
 import {
   getSongs,
+  getSongById,
   createSongs,
   updateSong,
   deleteSong,
@@ -9,6 +10,7 @@ import {
 const router = Router();
 
 router.get("/", getSongs);
+router.get("/:id", getSongById);
 router.post("/", createSongs);
 router.put("/:id", updateSong);
 router.delete("/:id", deleteSong);
