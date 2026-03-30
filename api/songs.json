@@ -1,16 +1,1 @@
-[
-  {
-    "id": 1,
-    "musica": "Eu sou teu Pai",
-    "tom": "C",
-    "bpm": 70,
-    "artista": "Valesca Mayssa"
-  },
-  {
-    "id": 2,
-    "musica": "Quem É Esse",
-    "tom": "C",
-    "bpm": 70,
-    "artista": "Julliany Souza"
-  }
-]
+[{"id":1,"musica":"Eu sou teu Pai","tom":"C","bpm":70,"artista":"Valesca Mayssa"},{"id":2,"musica":"Quem É Esse","tom":"C","bpm":70,"artista":"Julliany Souza"},{"id":3,"musica":"A casa","tom":"F","bpm":70,"artista":"Rosa Freitas"}]
