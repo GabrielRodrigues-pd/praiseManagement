@@ -13,7 +13,7 @@ function App() {
     switch (activeTab) {
       case "dashboard":
         return <Dashboard />;
-      case "library":
+      case "biblioteca":
         return <SongLibrary onAddSong={() => setIsModalOpen(true)} />;
       default:
         return <Dashboard />;

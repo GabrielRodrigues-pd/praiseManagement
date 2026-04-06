@@ -1,13 +1,18 @@
-import React from 'react';
-import { Music, Mic2, Disc, PlayCircle } from 'lucide-react';
-import './Dashboard.css';
+import React from "react";
+import { Music, Mic2, Disc, PlayCircle } from "lucide-react";
+import "./Dashboard.css";
 
 const Dashboard = () => {
   const stats = [
-    { label: 'Todas as Músicas', value: '42', icon: <Music />, color: 'blue' },
-    { label: 'Artistas', value: '18', icon: <Mic2 />, color: 'indigo' },
-    { label: 'Editoras', value: '7', icon: <Disc />, color: 'teal' },
-    { label: 'Sugestão da Semana', value: 'Fogo', icon: <PlayCircle />, color: 'red' },
+    { label: "Todas as Músicas", value: "42", icon: <Music />, color: "blue" },
+    { label: "Artistas", value: "18", icon: <Mic2 />, color: "indigo" },
+    { label: "Editoras", value: "7", icon: <Disc />, color: "teal" },
+    {
+      label: "Sugestão da Semana",
+      value: "Fogo",
+      icon: <PlayCircle />,
+      color: "red",
+    },
   ];
 
   return (
@@ -20,9 +25,7 @@ const Dashboard = () => {
       <section className="stats-grid">
         {stats.map((stat, i) => (
           <div key={i} className="stat-card">
-            <div className={`stat-icon-wrapper ${stat.color}`}>
-              {stat.icon}
-            </div>
+            <div className={`stat-icon-wrapper ${stat.color}`}>{stat.icon}</div>
             <div className="stat-info">
               <span className="stat-label">{stat.label}</span>
               <span className="stat-value">{stat.value}</span>

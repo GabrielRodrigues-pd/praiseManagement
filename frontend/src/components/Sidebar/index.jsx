@@ -1,16 +1,26 @@
-import React from 'react';
-import { LayoutDashboard, Music, Settings, LogOut, PlusSquare } from 'lucide-react';
-import './Sidebar.css';
+import React from "react";
+import {
+  LayoutDashboard,
+  Music,
+  Settings,
+  LogOut,
+  PlusSquare,
+} from "lucide-react";
+import "./Sidebar.css";
 
 const Sidebar = ({ activeTab, setActiveTab }) => {
   const menuItems = [
-    { id: 'dashboard', label: 'Dashboard', icon: <LayoutDashboard size={20} /> },
-    { id: 'library', label: 'Biblioteca', icon: <Music size={20} /> },
+    {
+      id: "dashboard",
+      label: "Dashboard",
+      icon: <LayoutDashboard size={20} />,
+    },
+    { id: "biblioteca", label: "Biblioteca", icon: <Music size={20} /> },
   ];
 
   const bottomItems = [
-    { id: 'settings', label: 'Configurações', icon: <Settings size={20} /> },
-    { id: 'logout', label: 'Sair', icon: <LogOut size={20} /> },
+    { id: "settings", label: "Configurações", icon: <Settings size={20} /> },
+    { id: "logout", label: "Sair", icon: <LogOut size={20} /> },
   ];
 
   return (
@@ -29,7 +39,7 @@ const Sidebar = ({ activeTab, setActiveTab }) => {
             <button
               key={item.id}
               onClick={() => setActiveTab(item.id)}
-              className={`nav-item ${activeTab === item.id ? 'active' : ''}`}
+              className={`nav-item ${activeTab === item.id ? "active" : ""}`}
             >
               <span className="nav-icon">{item.icon}</span>
               <span className="nav-text">{item.label}</span>
