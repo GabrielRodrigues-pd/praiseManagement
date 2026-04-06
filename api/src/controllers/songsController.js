@@ -37,9 +37,10 @@ export const createSongs = async (req, res) => {
 // Atualiza um song específico do arquivo songs.json pelo id
 export const updateSong = async (req, res) => {
   try {
-    const currentSongs = await songService.getAllSongs();
+    let currentSongs = await songService.getAllSongs();
     const updatedSong = req.body;
-    const songs = songService.updateSongs(currentSongs, updatedSong);
+    const id = parseInt(req.params.id);
+    const songs = songService.updateSongs(currentSongs, updatedSong, id);
     res.status(200).json({ data: songs, count: songs.length });
   } catch (error) {
     res.status(400).json({ message: error.message });

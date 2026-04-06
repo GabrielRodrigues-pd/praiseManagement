@@ -22,12 +22,12 @@ export function getSongById(currentSongs, id) {
   return song;
 }
 
-export function updateSongs(currentSongs, updatedSong) {
-  const songs = currentSongs.map((song) =>
-    song.id === updatedSong.id ? updatedSong : song,
-  );
-  fs.writeFileSync(pathSongs, JSON.stringify(songs));
-  return songs;
+export function updateSongs(currentSongs, updatedSong, id) {
+  const indexModificado = currentSongs.findIndex((song) => song.id === id);
+  const conteudoMudado = { ...currentSongs[indexModificado], ...updatedSong };
+  currentSongs[indexModificado] = conteudoMudado;
+  fs.writeFileSync(pathSongs, JSON.stringify(currentSongs));
+  return currentSongs;
 }
 
 export function deleteSongs(currentSongs, id) {

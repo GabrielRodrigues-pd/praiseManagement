@@ -12,7 +12,7 @@ const router = Router();
 router.get("/", getSongs);
 router.get("/:id", getSongById);
 router.post("/", createSongs);
-router.put("/:id", updateSong);
+router.patch("/:id", updateSong);
 router.delete("/:id", deleteSong);
 
 export default router;
