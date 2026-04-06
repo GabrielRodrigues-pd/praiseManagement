@@ -3,22 +3,22 @@
   --color-neutral: #f8fafc; /* 60% - Backgrounds, large surfaces */
   --color-secondary: #1e293b; /* 30% - Sidebar, primary text, headers */
   --color-accent: #bb0218; /* 10% - CTAs, active states, highlights */
-  
+
   /* Additional Support Colors */
   --color-surface: #ffffff;
   --color-border: #e2e8f0;
   --color-text-muted: #64748b;
   --color-white: #ffffff;
-  
+
   /* Typography */
-  --font-family: 'Outfit', sans-serif;
-  
+  --font-family: "Outfit", sans-serif;
+
   /* Shadow & Radii */
   --shadow-sm: 0 1px 2px 0 rgb(0 0 0 / 0.05);
   --shadow-md: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);
   --radius-md: 12px;
   --radius-lg: 16px;
-  
+
   /* Spacing */
   --sidebar-width: 260px;
 }
@@ -43,6 +43,10 @@ button {
   background: none;
   font-family: inherit;
   transition: all 0.2s ease;
+}
+
+a {
+  text-decoration: none;
 }
 
 ul {

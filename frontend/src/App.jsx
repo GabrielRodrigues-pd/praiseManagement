@@ -1,5 +1,10 @@
 import React, { useState } from "react";
-import { BrowserRouter as Router, Routes, Route, Navigate } from "react-router-dom";
+import {
+  BrowserRouter as Router,
+  Routes,
+  Route,
+  Navigate,
+} from "react-router-dom";
 import Sidebar from "./components/Sidebar";
 import Dashboard from "./components/Dashboard";
 import SongLibrary from "./components/SongLibrary";
@@ -18,7 +23,10 @@ function App() {
           <Routes>
             <Route path="/" element={<Navigate to="/dashboard" replace />} />
             <Route path="/dashboard" element={<Dashboard />} />
-            <Route path="/biblioteca" element={<SongLibrary onAddSong={() => setIsModalOpen(true)} />} />
+            <Route
+              path="/biblioteca"
+              element={<SongLibrary onAddSong={() => setIsModalOpen(true)} />}
+            />
             {/* Fallback route */}
             <Route path="*" element={<Navigate to="/dashboard" replace />} />
           </Routes>

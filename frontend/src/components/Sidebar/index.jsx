@@ -1,11 +1,6 @@
 import React from "react";
 import { NavLink } from "react-router-dom";
-import {
-  LayoutDashboard,
-  Music,
-  Settings,
-  LogOut,
-} from "lucide-react";
+import { LayoutDashboard, Music, Settings, LogOut } from "lucide-react";
 import "./Sidebar.css";
 
 const Sidebar = () => {
@@ -39,7 +34,9 @@ const Sidebar = () => {
             <NavLink
               key={item.path}
               to={item.path}
-              className={({ isActive }) => `nav-item ${isActive ? "active" : ""}`}
+              className={({ isActive }) =>
+                `nav-item ${isActive ? "active" : ""}`
+              }
             >
               <span className="nav-icon">{item.icon}</span>
               <span className="nav-text">{item.label}</span>
