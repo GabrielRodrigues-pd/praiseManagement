@@ -15,8 +15,12 @@ export const getSongById = async (req, res) => {
   try {
     const currentSongs = await songService.getAllSongs();
     const id = parseInt(req.params.id);
-    const song = songService.getSongById(currentSongs, id);
-    res.status(200).json({ data: song });
+    if (id && Number(id)) {
+      const song = songService.getSongById(currentSongs, id);
+      res.status(200).json({ data: song });
+    } else {
+      res.status(422).send("Id inválido");
+    }
   } catch (error) {
     res.status(400).json({ message: error.message });
   }
@@ -40,8 +44,12 @@ export const updateSong = async (req, res) => {
     let currentSongs = await songService.getAllSongs();
     const updatedSong = req.body;
     const id = parseInt(req.params.id);
-    const songs = songService.updateSongs(currentSongs, updatedSong, id);
-    res.status(200).json({ data: songs, count: songs.length });
+    if (id && Number(id)) {
+      const songs = songService.updateSongs(currentSongs, updatedSong, id);
+      res.status(200).json({ data: songs, count: songs.length });
+    } else {
+      res.status(422).send("Id inválido");
+    }
   } catch (error) {
     res.status(400).json({ message: error.message });
   }
@@ -52,8 +60,12 @@ export const deleteSong = async (req, res) => {
   try {
     const currentSongs = await songService.getAllSongs();
     const id = req.params.id;
-    const songs = songService.deleteSongs(currentSongs, id);
-    res.status(200).json({ data: songs, count: songs.length });
+    if (id && Number(id)) {
+      songService.deleteSongs(currentSongs, id);
+      res.status(200).send("Livro deletado com sucesso!");
+    } else {
+      res.status(422).send("Id inválido");
+    }
   } catch (error) {
     res.status(400).json({ message: error.message });
   }
