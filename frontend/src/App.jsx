@@ -3,6 +3,7 @@ import Sidebar from './components/Sidebar';
 import Dashboard from './components/Dashboard';
 import SongLibrary from './components/SongLibrary';
 import SongForm from './components/SongForm';
+import './App.css';
 
 function App() {
   const [activeTab, setActiveTab] = useState('dashboard');
@@ -30,21 +31,6 @@ function App() {
       {isModalOpen && (
         <SongForm onClose={() => setIsModalOpen(false)} />
       )}
-
-      <style>{`
-        .app-container {
-          display: flex;
-          min-height: 100vh;
-        }
-
-        .main-content {
-          flex: 1;
-          margin-left: var(--sidebar-width);
-          min-height: 100vh;
-          background-color: var(--color-neutral);
-          transition: all 0.3s ease;
-        }
-      `}</style>
     </div>
   );
 }
