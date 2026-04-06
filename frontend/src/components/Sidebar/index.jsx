@@ -1,21 +1,21 @@
 import React from "react";
+import { NavLink } from "react-router-dom";
 import {
   LayoutDashboard,
   Music,
   Settings,
   LogOut,
-  PlusSquare,
 } from "lucide-react";
 import "./Sidebar.css";
 
-const Sidebar = ({ activeTab, setActiveTab }) => {
+const Sidebar = () => {
   const menuItems = [
     {
-      id: "dashboard",
+      path: "/dashboard",
       label: "Dashboard",
       icon: <LayoutDashboard size={20} />,
     },
-    { id: "biblioteca", label: "Biblioteca", icon: <Music size={20} /> },
+    { path: "/biblioteca", label: "Biblioteca", icon: <Music size={20} /> },
   ];
 
   const bottomItems = [
@@ -36,14 +36,14 @@ const Sidebar = ({ activeTab, setActiveTab }) => {
         <div className="nav-group">
           <span className="nav-label">Menu Principal</span>
           {menuItems.map((item) => (
-            <button
-              key={item.id}
-              onClick={() => setActiveTab(item.id)}
-              className={`nav-item ${activeTab === item.id ? "active" : ""}`}
+            <NavLink
+              key={item.path}
+              to={item.path}
+              className={({ isActive }) => `nav-item ${isActive ? "active" : ""}`}
             >
               <span className="nav-icon">{item.icon}</span>
               <span className="nav-text">{item.label}</span>
-            </button>
+            </NavLink>
           ))}
         </div>
       </nav>
