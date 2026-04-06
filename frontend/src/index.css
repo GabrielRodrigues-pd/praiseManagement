@@ -1,0 +1,68 @@
+:root {
+  /* 60-30-10 Rule Design Tokens */
+  --color-neutral: #f8fafc; /* 60% - Backgrounds, large surfaces */
+  --color-secondary: #1e293b; /* 30% - Sidebar, primary text, headers */
+  --color-accent: #bb0218; /* 10% - CTAs, active states, highlights */
+  
+  /* Additional Support Colors */
+  --color-surface: #ffffff;
+  --color-border: #e2e8f0;
+  --color-text-muted: #64748b;
+  --color-white: #ffffff;
+  
+  /* Typography */
+  --font-family: 'Outfit', sans-serif;
+  
+  /* Shadow & Radii */
+  --shadow-sm: 0 1px 2px 0 rgb(0 0 0 / 0.05);
+  --shadow-md: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);
+  --radius-md: 12px;
+  --radius-lg: 16px;
+  
+  /* Spacing */
+  --sidebar-width: 260px;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: var(--font-family);
+  background-color: var(--color-neutral);
+  color: var(--color-secondary);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+button {
+  cursor: pointer;
+  border: none;
+  background: none;
+  font-family: inherit;
+  transition: all 0.2s ease;
+}
+
+ul {
+  list-style: none;
+}
+
+/* Scrollbar Style */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--color-neutral);
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--color-border);
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--color-text-muted);
+}
