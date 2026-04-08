@@ -1,9 +1,21 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { Search, Filter, Plus, Edit2, Trash2, Music } from "lucide-react";
 import "./SongLibrary.css";
+import { getSongs } from "../../services/api";
 
 const SongLibrary = ({ onAddSong }) => {
   const [searchTerm, setSearchTerm] = useState("");
+  const [songs, setSongs] = useState([]);
+
+  useEffect(() => {
+    fetchSongs();
+  }, []);
+
+  async function fetchSongs() {
+    const songsApi = await getSongs();
+    setSongs(songsApi);
+  }
+  console.log(songs);
 
   const mockSongs = [
     {
