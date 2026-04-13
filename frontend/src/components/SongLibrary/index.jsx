@@ -57,6 +57,7 @@ const SongLibrary = ({ onAddSong }) => {
         </button>
       </header>
 
+      {/* Campo de Busca */}
       <div className="library-controls">
         <div className="search-bar">
           <Search size={18} className="search-icon" />
