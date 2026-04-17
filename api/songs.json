@@ -1,1 +1,26 @@
-[{"id":1,"musica":"Eu sou teu Pai","tom":"C","bpm":70,"artista":"Valesca Mayssa"},{"id":3,"musica":"A casa","tom":"F","bpm":70,"artista":"Rosa Freitas","editora":"casa nova"},{"id":2,"musica":"A casa","tom":"F","bpm":70,"artista":"Rosa Freitas","editora":"casa nova"}]
+[
+  {
+    "id": 1,
+    "musica": "Eu sou teu Pai",
+    "tom": "C",
+    "bpm": 70,
+    "artista": "Valesca Mayssa",
+    "editora": "Casa Prática"
+  },
+  {
+    "id": 3,
+    "musica": "A casa",
+    "tom": "F",
+    "bpm": 70,
+    "artista": "Rosa Freitas",
+    "editora": "casa nova"
+  },
+  {
+    "id": 2,
+    "musica": "A casa",
+    "tom": "F",
+    "bpm": 70,
+    "artista": "Rosa Freitas",
+    "editora": "casa nova"
+  }
+]

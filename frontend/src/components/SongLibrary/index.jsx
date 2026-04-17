@@ -87,32 +87,36 @@ const SongLibrary = ({ onAddSong }) => {
             </tr>
           </thead>
           <tbody>
-            {mockSongs.map((song) => (
-              <tr key={song.id}>
-                <td>
-                  <div className="song-title-cell">
-                    <Music color={song.id % 2 === 0 ? "#bb0218" : "#1e293b"} />
-                    <span className="song-name">{song.musica}</span>
-                  </div>
-                </td>
-                <td className="artist-cell">{song.artista}</td>
-                <td>
-                  <span className="key-badge">{song.tom}</span>
-                </td>
-                <td className="bpm-cell">{song.bpm}</td>
-                <td className="editora-cell">{song.editora}</td>
-                <td className="actions-cell">
-                  <div className="action-buttons">
-                    <button className="action-btn edit" title="Editar">
-                      <Edit2 size={16} />
-                    </button>
-                    <button className="action-btn delete" title="Excluir">
-                      <Trash2 size={16} />
-                    </button>
-                  </div>
-                </td>
-              </tr>
-            ))}
+            {Array.isArray(songs)
+              ? songs.map((song) => (
+                  <tr key={song.id}>
+                    <td>
+                      <div className="song-title-cell">
+                        <Music
+                          color={song.id % 2 === 0 ? "#bb0218" : "#1e293b"}
+                        />
+                        <span className="song-name">{song.musica}</span>
+                      </div>
+                    </td>
+                    <td className="artist-cell">{song.artista}</td>
+                    <td>
+                      <span className="key-badge">{song.tom}</span>
+                    </td>
+                    <td className="bpm-cell">{song.bpm}</td>
+                    <td className="editora-cell">{song.editora}</td>
+                    <td className="actions-cell">
+                      <div className="action-buttons">
+                        <button className="action-btn edit" title="Editar">
+                          <Edit2 size={16} />
+                        </button>
+                        <button className="action-btn delete" title="Excluir">
+                          <Trash2 size={16} />
+                        </button>
+                      </div>
+                    </td>
+                  </tr>
+                ))
+              : null}
           </tbody>
         </table>
       </div>

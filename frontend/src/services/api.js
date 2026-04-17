@@ -10,7 +10,7 @@ const api = axios.create({
 const getSongs = async () => {
   const response = await api.get("/");
 
-  return response.data;
+  return response.data?.data || [];
 };
 
 export { getSongs };
