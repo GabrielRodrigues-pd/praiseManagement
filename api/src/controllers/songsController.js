@@ -15,7 +15,7 @@ export const getSongById = async (req, res) => {
   try {
     const currentSongs = await songService.getAllSongs();
     const id = parseInt(req.params.id);
-    if (id && Number(id)) {
+    if (!Number.isNaN(id)) {
       const song = songService.getSongById(currentSongs, id);
       res.status(200).json({ data: song });
     } else {
@@ -44,7 +44,7 @@ export const updateSong = async (req, res) => {
     let currentSongs = await songService.getAllSongs();
     const updatedSong = req.body;
     const id = parseInt(req.params.id);
-    if (id && Number(id)) {
+    if (!Number.isNaN(id)) {
       const songs = songService.updateSongs(currentSongs, updatedSong, id);
       res.status(200).json({ data: songs, count: songs.length });
     } else {
@@ -59,8 +59,8 @@ export const updateSong = async (req, res) => {
 export const deleteSong = async (req, res) => {
   try {
     const currentSongs = await songService.getAllSongs();
-    const id = req.params.id;
-    if (id && Number(id)) {
+    const id = parseInt(req.params.id);
+    if (!Number.isNaN(id)) {
       songService.deleteSongs(currentSongs, id);
       res.status(200).send("Livro deletado com sucesso!");
     } else {
