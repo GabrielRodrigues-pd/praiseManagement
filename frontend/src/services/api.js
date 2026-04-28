@@ -13,4 +13,22 @@ const getSongs = async () => {
   return response.data?.data || [];
 };
 
-export { getSongs };
+const createSong = async (song) => {
+  const response = await api.post("/", song);
+
+  return response.data?.data || [];
+};
+
+const updateSong = async (id, song) => {
+  const response = await api.patch(`/${id}`, song);
+
+  return response.data?.data || [];
+};
+
+const deleteSong = async (id) => {
+  const response = await api.delete(`/${id}`);
+
+  return response.data?.message || "Song deleted";
+};
+
+export { getSongs, createSong, updateSong, deleteSong };

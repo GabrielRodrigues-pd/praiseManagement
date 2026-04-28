@@ -1,48 +1,31 @@
 import React, { useEffect, useState } from "react";
 import { Search, Filter, Plus, Edit2, Trash2, Music } from "lucide-react";
 import "./SongLibrary.css";
-import { getSongs } from "../../services/api";
+import { getSongs, deleteSong } from "../../services/api";
 
-const SongLibrary = ({ onAddSong }) => {
+const SongLibrary = ({ onAddSong, refreshKey }) => {
   const [searchTerm, setSearchTerm] = useState("");
   const [songs, setSongs] = useState([]);
 
   useEffect(() => {
     fetchSongs();
-  }, []);
+  }, [refreshKey]);
 
   async function fetchSongs() {
     const songsApi = await getSongs();
     setSongs(songsApi);
   }
-  console.log(songs);
 
-  const mockSongs = [
-    {
-      id: 1,
-      musica: "Eu sou teu Pai",
-      tom: "C",
-      bpm: 70,
-      artista: "Valesca Mayssa",
-      editora: "Default",
-    },
-    {
-      id: 2,
-      musica: "A casa",
-      tom: "F",
-      bpm: 70,
-      artista: "Rosa Freitas",
-      editora: "Casa Nova",
-    },
-    {
-      id: 3,
-      musica: "Vitorioso És",
-      tom: "G",
-      bpm: 80,
-      artista: "Gabriel Guedes",
-      editora: "MK Music",
-    },
-  ];
+  const handleDelete = async (id) => {
+    if (window.confirm("Tem certeza que deseja excluir esta música?")) {
+      try {
+        await deleteSong(id);
+        fetchSongs();
+      } catch (error) {
+        console.error("Error deleting song:", error);
+      }
+    }
+  };
 
   return (
     <div className="library">
@@ -109,7 +92,7 @@ const SongLibrary = ({ onAddSong }) => {
                         <button className="action-btn edit" title="Editar">
                           <Edit2 size={16} />
                         </button>
-                        <button className="action-btn delete" title="Excluir">
+                        <button className="action-btn delete" title="Excluir" onClick={() => handleDelete(song.id)}>
                           <Trash2 size={16} />
                         </button>
                       </div>

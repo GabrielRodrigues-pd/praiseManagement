@@ -13,6 +13,12 @@ import "./App.css";
 
 function App() {
   const [isModalOpen, setIsModalOpen] = useState(false);
+  const [refreshKey, setRefreshKey] = useState(0);
+
+  const handleSongCreated = () => {
+    setIsModalOpen(false);
+    setRefreshKey((prev) => prev + 1);
+  };
 
   return (
     <Router>
@@ -25,14 +31,14 @@ function App() {
             <Route path="/dashboard" element={<Dashboard />} />
             <Route
               path="/biblioteca"
-              element={<SongLibrary onAddSong={() => setIsModalOpen(true)} />}
+              element={<SongLibrary onAddSong={() => setIsModalOpen(true)} refreshKey={refreshKey} />}
             />
             {/* Fallback route */}
             <Route path="*" element={<Navigate to="/dashboard" replace />} />
           </Routes>
         </main>
 
-        {isModalOpen && <SongForm onClose={() => setIsModalOpen(false)} />}
+        {isModalOpen && <SongForm onClose={() => setIsModalOpen(false)} onSongCreated={handleSongCreated} />}
       </div>
     </Router>
   );
